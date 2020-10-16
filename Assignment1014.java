@@ -21,43 +21,23 @@ public class Assignment1014 {
         /* No.3 */
         System.out.print("Please enter 10 numbers : ");
         Scanner input1 = new Scanner(System.in);
-        double value1 = input1.nextDouble();
-        Scanner input2 = new Scanner(System.in);
-        double value2 = input2.nextDouble();
-        Scanner input3 = new Scanner(System.in);
-        double value3 = input3.nextDouble();
-        Scanner input4 = new Scanner(System.in);
-        double value4 = input4.nextDouble();
-        Scanner input5 = new Scanner(System.in);
-        double value5 = input5.nextDouble();
-        Scanner input6 = new Scanner(System.in);
-        double value6 = input6.nextDouble();
-        Scanner input7 = new Scanner(System.in);
-        double value7 = input7.nextDouble();
-        Scanner input8 = new Scanner(System.in);
-        double value8 = input8.nextDouble();
-        Scanner input9 = new Scanner(System.in);
-        double value9 = input9.nextDouble();
-        Scanner input10 = new Scanner(System.in);
-        double value10 = input10.nextDouble();
+        double[] numbers = new double[10];
 
-        double arr3[] = new double[10];
+        for(int i = 0; i < numbers.length; i++){
+            numbers[i] = input1.nextDouble();
+        }
 
-        arr3[0] = value1;
-        arr3[1] = value2;
-        arr3[2] = value3;
-        arr3[3] = value4;
-        arr3[4] = value5;
-        arr3[5] = value6;
-        arr3[6] = value7;
-        arr3[7] = value8;
-        arr3[8] = value9;
-        arr3[9] = value10;
-
-        System.out.println(average(arr3));
+        System.out.println(average(numbers));
 
         /* No.4 */
-        System.out.println(min());
+        System.out.print("Please enter 10 numbers : ");
+        Scanner input2 = new Scanner(System.in);
+        double[] numbers2 = new double[10];
+
+        for(int i = 0; i < numbers2.length; i++){
+            numbers2[i] = input2.nextDouble();
+        }
+        System.out.println(min(numbers2));
 
     }
 
@@ -78,15 +58,16 @@ public class Assignment1014 {
 
     /* No.2 Random number chooser */
     public static int getRandom(int[] arr){
-        while(true){
+        randomLoop: while(true){
+            
             int num = (int)(Math.random() * 54) + 1;
-            int a = 0;
+            // int a = 0;
             for(int i = 0; i < arr.length; i++){
                 if (num == arr[i]){
-                    a++;
+                    continue randomLoop;
                 }
             }
-            if(a == 0) return num;
+            return num;
         }
     }
 
@@ -107,47 +88,12 @@ public class Assignment1014 {
     }
 
     /* No.4 Find the smallest element */
-    public static double min(){
-        
-        System.out.print("Please enter 10 numbers : ");
-        Scanner input1 = new Scanner(System.in);
-        double value1 = input1.nextDouble();
-        Scanner input2 = new Scanner(System.in);
-        double value2 = input2.nextDouble();
-        Scanner input3 = new Scanner(System.in);
-        double value3 = input3.nextDouble();
-        Scanner input4 = new Scanner(System.in);
-        double value4 = input4.nextDouble();
-        Scanner input5 = new Scanner(System.in);
-        double value5 = input5.nextDouble();
-        Scanner input6 = new Scanner(System.in);
-        double value6 = input6.nextDouble();
-        Scanner input7 = new Scanner(System.in);
-        double value7 = input7.nextDouble();
-        Scanner input8 = new Scanner(System.in);
-        double value8 = input8.nextDouble();
-        Scanner input9 = new Scanner(System.in);
-        double value9 = input9.nextDouble();
-        Scanner input10 = new Scanner(System.in);
-        double value10 = input10.nextDouble();
+    public static double min(double[] numbers2) {
 
-        double arr[] = new double[10];
-
-        arr[0] = value1;
-        arr[1] = value2;
-        arr[2] = value3;
-        arr[3] = value4;
-        arr[4] = value5;
-        arr[5] = value6;
-        arr[6] = value7;
-        arr[7] = value8;
-        arr[8] = value9;
-        arr[9] = value10;
-
-        double small = arr[0];
-        for(int i = 1; i < arr.length -1; i++){
-            if(small >= arr[i]){
-                small = arr[i];
+        double small = numbers2[0];
+        for (int i = 1; i < numbers2.length - 1; i++) {
+            if (small >= numbers2[i]) {
+                small = numbers2[i];
             }
         }
         return small;
